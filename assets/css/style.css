@@ -10,9 +10,9 @@ h1 {
     margin: 20px 15px 20px 15px;
 }
 
-button.searcher {
+/* button.searcher, button[class*="history"] {
     margin: 15px 15px 15px 15px;
-}
+} */
 
 hr.solid {
     border-top: 3px solid rgb(143, 143, 143);
