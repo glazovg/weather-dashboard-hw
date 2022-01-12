@@ -12,6 +12,11 @@
               integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
               crossorigin="anonymous">
         <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+              integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+              crossorigin="anonymous"
+              referrerpolicy="no-referrer" />
+        <link rel="stylesheet"
               href="./assets/css/style.css">
         <title>Weather Dashboard</title>
     </head>
@@ -41,8 +46,121 @@
                             <hr class="solid">
                         </div>
                     </div>
-                    <div class="col-8">
-                        One of three columns
+                    <div class="col-9">
+                        <div class="row container weather-info">
+                            <h3 class="row city">Atlanta Example (01/15/2022)<i class="fas fa-cloud city-icon"></i></h3>
+                            <p class="row temperature">Temp: 74.01 °F</p>
+                            <p class="row wind">Wind: 6.8 MPH</p>
+                            <p class="row humidity">Humidity: 46 %</p>
+                            <p class="row uv-index">UV Index: 0.47</p>
+                        </div>
+                        <div class="row container weather-forecast">
+                            <h4 class="row forecast">5-Day Forecast:</h4>
+                            <div class="row row-cols-1 row-cols-md-5 g-4">
+                                <div class="col">
+                                    <div class="card mr-2"
+                                         style="max-width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
+                                            <p class="row temperature">Temp: 74.01 °F</p>
+                                            <p class="row wind">Wind: 6.8 MPH</p>
+                                            <p class="row humidity">Humidity: 46 %</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card mr-2"
+                                         style="max-width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
+                                            <p class="row temperature">Temp: 74.01 °F</p>
+                                            <p class="row wind">Wind: 6.8 MPH</p>
+                                            <p class="row humidity">Humidity: 46 %</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card mr-2"
+                                         style="max-width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
+                                            <p class="row temperature">Temp: 74.01 °F</p>
+                                            <p class="row wind">Wind: 6.8 MPH</p>
+                                            <p class="row humidity">Humidity: 46 %</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card mr-2"
+                                         style="max-width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
+                                            <p class="row temperature">Temp: 74.01 °F</p>
+                                            <p class="row wind">Wind: 6.8 MPH</p>
+                                            <p class="row humidity">Humidity: 46 %</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card mr-2"
+                                         style="max-width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
+                                            <p class="row temperature">Temp: 74.01 °F</p>
+                                            <p class="row wind">Wind: 6.8 MPH</p>
+                                            <p class="row humidity">Humidity: 46 %</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="card-group">
+                                <div class="card mr-2"
+                                     style="max-width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
+                                        <p class="row temperature">Temp: 74.01 °F</p>
+                                        <p class="row wind">Wind: 6.8 MPH</p>
+                                        <p class="row humidity">Humidity: 46 %</p>
+                                    </div>
+                                </div>
+                                <div class="card mr-2"
+                                     style="max-width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
+                                        <p class="row temperature">Temp: 74.01 °F</p>
+                                        <p class="row wind">Wind: 6.8 MPH</p>
+                                        <p class="row humidity">Humidity: 46 %</p>
+                                    </div>
+                                </div>
+                                <div class="card mr-2"
+                                     style="max-width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
+                                        <p class="row temperature">Temp: 74.01 °F</p>
+                                        <p class="row wind">Wind: 6.8 MPH</p>
+                                        <p class="row humidity">Humidity: 46 %</p>
+                                    </div>
+                                </div>
+                                <div class="card mr-2"
+                                     style="max-width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
+                                        <p class="row temperature">Temp: 74.01 °F</p>
+                                        <p class="row wind">Wind: 6.8 MPH</p>
+                                        <p class="row humidity">Humidity: 46 %</p>
+                                    </div>
+                                </div>
+                                <div class="card mr-2"
+                                     style="max-width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
+                                        <p class="row temperature">Temp: 74.01 °F</p>
+                                        <p class="row wind">Wind: 6.8 MPH</p>
+                                        <p class="row humidity">Humidity: 46 %</p>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
                     </div>
                 </div>
             </div>

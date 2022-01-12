@@ -11,11 +11,32 @@ h1 {
 }
 
 button.searcher {
-    color: snow;
-    background-color: rgba(80, 177, 241, 0.979);
     margin: 15px 15px 15px 15px;
 }
 
 hr.solid {
-    border-top: 3px solid #bbb;
+    border-top: 3px solid rgb(143, 143, 143);
+}
+
+.city-icon {
+    display: contents;
+    line-height: 40px;
+}
+
+.weather-info {
+    border: 2px solid rgb(143, 143, 143);
+    border-radius: 5px;
+}
+
+.weather-forecast {
+    padding: 0;
+    margin: 15px 0px 15px 0px;
+}
+
+.card-group {
+    padding: 0;
+}
+
+.forecast {
+    margin: 10px 0px 0px 0px;
 }
