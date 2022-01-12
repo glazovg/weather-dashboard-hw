@@ -1,8 +1,8 @@
 .jumbotron {
-    background-image: linear-gradient(to right, blue,indigo);
+    background-image: linear-gradient(to right, blue, indigo);
 }
 
-h1 { 
+h1 {
     padding: 20px 0 20px 0;
 }
 
@@ -14,4 +14,8 @@ button.searcher {
     color: snow;
     background-color: rgba(80, 177, 241, 0.979);
     margin: 15px 15px 15px 15px;
+}
+
+hr.solid {
+    border-top: 3px solid #bbb;
 }
