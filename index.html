@@ -17,6 +17,11 @@
               crossorigin="anonymous"
               referrerpolicy="no-referrer" />
         <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+              integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+              crossorigin="anonymous"
+              referrerpolicy="no-referrer" />
+        <link rel="stylesheet"
               href="./assets/css/style.css">
         <title>Weather Dashboard</title>
     </head>
@@ -39,6 +44,7 @@
                         <div class="d-grid gap-2">
                             <p class="row fs-4 fw-bold">Search for a City:</p>
                             <input type="search"
+                                   id="input-search"
                                    class="form-control rounded searcher"
                                    placeholder="San Diego"
                                    aria-label="Search"
@@ -139,8 +145,11 @@
                 </div>
             </div>
         </main>
-
-
     </body>
+
+    <script src="./assets/js/cities.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="./assets/js/index.js"></script>
 
 </html>
