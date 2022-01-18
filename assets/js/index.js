@@ -10,14 +10,14 @@ const cityUvEl = $('.weather-info .uv-index span');
 const welcomeMsg = $('.welcome');
 const weatherInfo = $('.weather-info');
 
-function getWeatherInfo() {
-    const getCountryInfo = `https://api.openweathermap.org/data/2.5/weather?q=${inputSearchEl.val()}&units=imperial&appid=${API_KEY}`;
+function getWeatherInfo(city) {
+    const getCountryInfo = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`;
 
     $.ajax(getCountryInfo)
         .done(function (response) {
             const lat = response.coord.lat;
             const lon = response.coord.lon;
-            const getUvi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,daily,alerts&appid=${API_KEY}`;
+            const getUvi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${API_KEY}`;
             const cityName = response.name;
             const timeZone = parseInt(response.timezone) / 3600;
             const date = moment().utcOffset(timeZone).format('MM/DD/YYYY');
@@ -54,6 +54,9 @@ function getWeatherInfo() {
                         cityUvEl.css('color', 'snow');
                     }
                 })
+                //TODO Finish forecast cards use same reponse from last ajax call
+
+
         })
         .fail(function (e) {
             alert(`There was a problem: ${e.responseJSON.message}`);
@@ -69,10 +72,10 @@ inputSearchEl.autocomplete({
 
 inputSearchEl.on('keypress', function (e) {
     if (e.which == 13) {
-        getWeatherInfo();
+        getWeatherInfo(inputSearchEl.val());
     }
 });
 
 searchButton.on('click', function () {
-    getWeatherInfo();
+    getWeatherInfo(inputSearchEl.val());
 });
