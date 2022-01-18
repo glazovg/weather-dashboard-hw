@@ -12,11 +12,6 @@
               integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
               crossorigin="anonymous">
         <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-              integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-              crossorigin="anonymous"
-              referrerpolicy="no-referrer" />
-        <link rel="stylesheet"
               href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
               integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
               crossorigin="anonymous"
@@ -53,45 +48,61 @@
                                     class="btn btn-primary searcher">Search</button>
                             <hr class="solid">
                         </div>
-                        <div class="d-grid gap-2">
+                        <div class="d-grid gap-2 history">
                             <button type="button"
-                                    class="btn btn-secondary history-btn">Alabama</button>
+                                    class="btn btn-secondary d-none"
+                                    data-history-id>Alabama</button>
                             <button type="button"
-                                    class="btn btn-secondary history-btn">Michigan</button>
+                                    class="btn btn-secondary d-none"
+                                    data-history-id></button>
                             <button type="button"
-                                    class="btn btn-secondary history-btn">Alabama</button>
+                                    class="btn btn-secondary d-none"
+                                    data-history-id></button>
                             <button type="button"
-                                    class="btn btn-secondary history-btn">Michigan</button>
+                                    class="btn btn-secondary d-none"
+                                    data-history-id></button>
                             <button type="button"
-                                    class="btn btn-secondary history-btn">Alabama</button>
+                                    class="btn btn-secondary d-none"
+                                    data-history-id></button>
                             <button type="button"
-                                    class="btn btn-secondary history-btn">Michigan</button>
+                                    class="btn btn-secondary d-none"
+                                    data-history-id></button>
                             <button type="button"
-                                    class="btn btn-secondary history-btn">Alabama</button>
+                                    class="btn btn-secondary d-none"
+                                    data-history-id></button>
                             <button type="button"
-                                    class="btn btn-secondary history-btn">Michigan</button>
+                                    class="btn btn-secondary d-none"
+                                    data-history-id></button>
                         </div>
                     </div>
                     <div class="col-9">
                         <!-- class="col"  for mobile devices-->
-                        <div class="row container weather-info">
-                            <h3 class="row city">Atlanta Example (01/15/2022)<i class="fas fa-cloud city-icon"></i></h3>
-                            <p class="row temperature">Temp: 74.01 °F</p>
-                            <p class="row wind">Wind: 6.8 MPH</p>
-                            <p class="row humidity">Humidity: 46 %</p>
-                            <p class="row uv-index">UV Index: 0.47</p>
+                        <h3 class="container welcome text-center"> Welcome to weather dashboard application, please make
+                            a search of a city that you want to get weather information.</h3>
+                        <div class="row container weather-info d-none">
+                            <h3 class="city weather-info-data"><i class="weather-icon"><img
+                                         alt="Weather icon"></i>
+                            </h3>
+                            <p class="temperature weather-info-data"></p>
+                            <p class="wind weather-info-data"></p>
+                            <p class="humidity weather-info-data"></p>
+                            <p class="uv-index weather-info-data">UV Index:
+                                <span></span>
+                            </p>
                         </div>
-                        <div class="row container weather-forecast">
+                        <div class="row container weather-forecast d-none">
                             <h4 class="row forecast">5-Day Forecast:</h4>
                             <div class="row row-cols-1 row-cols-md-5 g-4">
                                 <div class="col">
                                     <div class="card mr-2"
                                          style="max-width: 18rem;">
                                         <div class="card-body">
-                                            <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
-                                            <p class="row temperature">Temp: 74.01 °F</p>
-                                            <p class="row wind">Wind: 6.8 MPH</p>
-                                            <p class="row humidity">Humidity: 46 %</p>
+                                            <h5 class="card-title">01/16/2022<i class=""><img
+                                                         src="http://openweathermap.org/img/wn/11n.png"
+                                                         alt="Weather icon"></i></h5>
+                                            <p class="temperature">Temp: 74.01 °F</p>
+                                            <p class="wind">Wind: 6.8 MPH</p>
+                                            <p class="humidity">Humidity: 46 %</p>
                                         </div>
                                     </div>
                                 </div>
@@ -99,10 +110,12 @@
                                     <div class="card mr-2"
                                          style="max-width: 18rem;">
                                         <div class="card-body">
-                                            <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
-                                            <p class="row temperature">Temp: 74.01 °F</p>
-                                            <p class="row wind">Wind: 6.8 MPH</p>
-                                            <p class="row humidity">Humidity: 46 %</p>
+                                            <h5 class="card-title">01/16/2022<i class=""><img
+                                                         src="http://openweathermap.org/img/wn/11n.png"
+                                                         alt="Weather icon"></i></h5>
+                                            <p class="temperature">Temp: 74.01 °F</p>
+                                            <p class="wind">Wind: 6.8 MPH</p>
+                                            <p class="humidity">Humidity: 46 %</p>
                                         </div>
                                     </div>
                                 </div>
@@ -110,10 +123,12 @@
                                     <div class="card mr-2"
                                          style="max-width: 18rem;">
                                         <div class="card-body">
-                                            <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
-                                            <p class="row temperature">Temp: 74.01 °F</p>
-                                            <p class="row wind">Wind: 6.8 MPH</p>
-                                            <p class="row humidity">Humidity: 46 %</p>
+                                            <h5 class="card-title">01/16/2022<i class=""><img
+                                                         src="http://openweathermap.org/img/wn/11n.png"
+                                                         alt="Weather icon"></i></h5>
+                                            <p class="temperature">Temp: 74.01 °F</p>
+                                            <p class="wind">Wind: 6.8 MPH</p>
+                                            <p class="humidity">Humidity: 46 %</p>
                                         </div>
                                     </div>
                                 </div>
@@ -121,10 +136,12 @@
                                     <div class="card mr-2"
                                          style="max-width: 18rem;">
                                         <div class="card-body">
-                                            <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
-                                            <p class="row temperature">Temp: 74.01 °F</p>
-                                            <p class="row wind">Wind: 6.8 MPH</p>
-                                            <p class="row humidity">Humidity: 46 %</p>
+                                            <h5 class="card-title">01/16/2022<i class=""><img
+                                                         src="http://openweathermap.org/img/wn/11n.png"
+                                                         alt="Weather icon"></i></h5>
+                                            <p class="temperature">Temp: 74.01 °F</p>
+                                            <p class="wind">Wind: 6.8 MPH</p>
+                                            <p class="humidity">Humidity: 46 %</p>
                                         </div>
                                     </div>
                                 </div>
@@ -132,10 +149,12 @@
                                     <div class="card mr-2"
                                          style="max-width: 18rem;">
                                         <div class="card-body">
-                                            <h5 class="card-title">01/16/2022<i class="fas fa-cloud"></i></h5>
-                                            <p class="row temperature">Temp: 74.01 °F</p>
-                                            <p class="row wind">Wind: 6.8 MPH</p>
-                                            <p class="row humidity">Humidity: 46 %</p>
+                                            <h5 class="card-title">01/16/2022<i class=""><img
+                                                         src="http://openweathermap.org/img/wn/11n.png"
+                                                         alt="Weather icon"></i></h5>
+                                            <p class="temperature">Temp: 74.01 °F</p>
+                                            <p class="wind">Wind: 6.8 MPH</p>
+                                            <p class="humidity">Humidity: 46 %</p>
                                         </div>
                                     </div>
                                 </div>
@@ -147,6 +166,10 @@
         </main>
     </body>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+            integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
     <script src="./assets/js/cities.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>

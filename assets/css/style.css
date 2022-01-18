@@ -14,7 +14,7 @@ hr.solid {
     border-top: 3px solid rgb(143, 143, 143);
 }
 
-.city-icon {
+.weather-icon {
     display: contents;
     line-height: 40px;
 }
@@ -22,6 +22,14 @@ hr.solid {
 .weather-info {
     border: 2px solid rgb(143, 143, 143);
     border-radius: 5px;
+}
+
+.weather-info h3 {
+    align-items: center;
+}
+
+.weather-info-data {
+    padding: 0;
 }
 
 .weather-forecast {
@@ -36,4 +44,3 @@ hr.solid {
 .forecast {
     margin: 10px 0px 0px 0px;
 }
-
