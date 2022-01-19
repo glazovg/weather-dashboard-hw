@@ -9,15 +9,17 @@ const cityHumidityEl = $('.weather-info .humidity');
 const cityUvEl = $('.weather-info .uv-index span');
 const welcomeMsg = $('.welcome');
 const weatherInfo = $('.weather-info');
+const weatherForecast = $('.weather-forecast');
+const weatherCards = $('.weather-forecast .card-body');
 
 function getWeatherInfo(city) {
-    const getCountryInfo = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`;
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`;
 
-    $.ajax(getCountryInfo)
+    $.ajax(weatherUrl)
         .done(function (response) {
             const lat = response.coord.lat;
             const lon = response.coord.lon;
-            const getUvi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${API_KEY}`;
+            const oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${API_KEY}`;
             const cityName = response.name;
             const timeZone = parseInt(response.timezone) / 3600;
             const date = moment().utcOffset(timeZone).format('MM/DD/YYYY');
@@ -31,7 +33,7 @@ function getWeatherInfo(city) {
             cityWindEl.text(`Wind: ${wind} MPH`);
             cityHumidityEl.text(`Humidity: ${humidity} %`);
 
-            $.ajax(getUvi)
+            $.ajax(oneCallUrl)
                 .done(function (response) {
                     const uvIndex = response.current.uvi;
 
@@ -46,17 +48,29 @@ function getWeatherInfo(city) {
                     } else if (uvIndex < 8) {
                         cityUvEl.css('background-color', 'orange');
                         cityUvEl.css('color', 'snow');
-                    } else if (uvIndex < 11){
+                    } else if (uvIndex < 11) {
                         cityUvEl.css('background-color', 'red');
                         cityUvEl.css('color', 'snow');
                     } else if (uvIndex >= 11) {
                         cityUvEl.css('background-color', 'purple');
                         cityUvEl.css('color', 'snow');
                     }
+
+                    //For with fixed loop since forecast data is only for 5 days
+                    for (let i = 0; i < 5; i++) {
+                        //Since daily[0] is for current day, it'll be taken from 1-5 to get 5 days forecast
+                        const forecastImgSrc = `http://openweathermap.org/img/wn/${response.daily[i + 1].weather[0].icon}.png`;
+                        const date = moment.unix(response.daily[i + 1].dt).format("MM/DD/YYYY");
+                        const temp = response.daily[i + 1].temp.day;
+                        const wind = response.daily[i + 1].wind_speed;
+                        const humidity = response.daily[i + 1].humidity;
+
+                        $(weatherCards[i]).find('.card-title').html(`${date}<i><img src="${forecastImgSrc}" alt="Weather icon"></i>`);
+                        $(weatherCards[i]).find('.temperature').text(`Temp: ${temp} °F`);
+                        $(weatherCards[i]).find('.wind').text(`Wind: ${wind} MPH`);
+                        $(weatherCards[i]).find('.humidity').text(`Humidity: ${humidity} %`);
+                    }
                 })
-                //TODO Finish forecast cards use same reponse from last ajax call
-
-
         })
         .fail(function (e) {
             alert(`There was a problem: ${e.responseJSON.message}`);
@@ -64,6 +78,7 @@ function getWeatherInfo(city) {
 
     welcomeMsg.addClass('d-none');
     weatherInfo.removeClass('d-none');
+    weatherForecast.removeClass('d-none');
 }
 
 inputSearchEl.autocomplete({
