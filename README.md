@@ -12,4 +12,6 @@ Max history is 8 cities and if there is a new search the oldest history city is 
 ## Application Demo
 ![Weather App Demo](/assets/img/weather_dashboard_demo.gif)
 
+**[Weather Dashboard Application](https://glazovg.github.io/weather-dashboard-hw/)**
+
 Dashboard App created by Guillermo Lazo
