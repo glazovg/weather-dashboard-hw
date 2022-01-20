@@ -11,8 +11,12 @@ const welcomeMsg = $('.welcome');
 const weatherInfo = $('.weather-info');
 const weatherForecast = $('.weather-forecast');
 const weatherCards = $('.weather-forecast .card-body');
+const historyButtons = $('.history button');
+let maxHistory = 8;
+// let count = localStorage.getItem('count') ? localStorage.getItem('count') : 0;
+let count = 0;
 
-function getWeatherInfo(city) {
+async function getWeatherInfo(city) {
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`;
 
     $.ajax(weatherUrl)
@@ -71,14 +75,41 @@ function getWeatherInfo(city) {
                         $(weatherCards[i]).find('.humidity').text(`Humidity: ${humidity} %`);
                     }
                 })
+
+            welcomeMsg.addClass('d-none');
+            weatherInfo.removeClass('d-none');
+            weatherForecast.removeClass('d-none');
+            //saveSearch(city);
         })
         .fail(function (e) {
             alert(`There was a problem: ${e.responseJSON.message}`);
         });
+}
 
-    welcomeMsg.addClass('d-none');
-    weatherInfo.removeClass('d-none');
-    weatherForecast.removeClass('d-none');
+function saveSearch(search) {
+    for (const button of historyButtons) {
+        if($(button).text() === search) return;
+    };
+
+    if (count === 8) count = 0;
+
+    $(historyButtons[count]).text(search);
+    $(historyButtons[count]).removeClass('d-none');
+    search = search.toLowerCase().trim();
+
+    localStorage.setItem(`history-${count}`, search);
+    count++;
+    localStorage.setItem('count', count);
+}
+
+for (let i = 0; i < maxHistory; i++) {
+    if (localStorage.getItem(`history-${i}`)) {
+        const city = localStorage.getItem(`history-${i}`);
+        const capitalizeCity = city.charAt(0).toUpperCase() + city.slice(1);
+
+        $(historyButtons[i]).text(capitalizeCity);
+        $(historyButtons[i]).removeClass('d-none');
+    }
 }
 
 inputSearchEl.autocomplete({
@@ -87,10 +118,29 @@ inputSearchEl.autocomplete({
 
 inputSearchEl.on('keypress', function (e) {
     if (e.which == 13) {
-        getWeatherInfo(inputSearchEl.val());
+        try {
+            getWeatherInfo(inputSearchEl.val());
+        } catch (error) {
+            return;
+        }
+        saveSearch(inputSearchEl.val());
+        //getWeatherInfo(inputSearchEl.val());
     }
 });
 
 searchButton.on('click', function () {
-    getWeatherInfo(inputSearchEl.val());
+    try {
+        getWeatherInfo(inputSearchEl.val());
+        //saveSearch(city);
+    } catch (error) {
+        return;
+    }
+    saveSearch(inputSearchEl.val());
+    //getWeatherInfo(inputSearchEl.val());
 });
+
+for (const button of historyButtons) {
+    $(button).on('click', function () {
+        getWeatherInfo($(button).text());
+    });
+}
